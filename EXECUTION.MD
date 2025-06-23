@@ -8,7 +8,7 @@ To create a docker image for debezium server there are a few steps that need to 
 4. building debezium core
 5. building debezium-server
 6. creating a docker image from debezium-server
-7. pushing the image to the artifac registry.
+7. pushing the image to the artifact registry.
 
 ## Installing requirements
 ### Installing skdman
@@ -47,7 +47,7 @@ mvn clean package -DskipITs -DskipTests -Passembly
 This can take up to 15 minutes to build.
 If you build debezium-core and the artefacts will be stored in the `.m2`folder. Debezium-server will lookup these artifacts to be build (dependencies).
 
-This means that all changes in the code will be already in the artifacts.
+This means that all changes in the code will be already in the artifacts. Because of the flag `-Passembly` a tar.gz will also be created. We need this for the docker image.
 
 ### Building the docker image
 In the repository [debezium-server](https://github.com/cookiefactory/debezium-server) is a dockerfile.
