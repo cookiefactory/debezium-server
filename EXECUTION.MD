@@ -50,11 +50,11 @@ If you build debezium-core and the artefacts will be stored in the `.m2`folder. 
 This means that all changes in the code will be already in the artifacts. Because of the flag `-Passembly` a tar.gz will also be created. We need this for the docker image.
 
 ### Building the docker image
-In the repository [debezium-server](https://github.com/cookiefactory/debezium-server) is a dockerfile.
+In the repository [debezium-server](https://github.com/cookiefactory/debezium-server) is a dockerfile. We need a linux/amd64 architecture for the image. For example Mac works with arm so to ensure we have the right architecture for the image we add the flag `platform` to our command.
 
-So from the root folder of the repository you can simply perform:
+So from the root folder of the repository you perform:
 ```
-docker build --no-cache -t thomann-debezium/server:3.2.0 .
+docker build --no-cache --platform linux/amd64 -t thomann-debezium/server:3.2.0 .
 ```
 to build a local docker image for debezium.
 
@@ -87,5 +87,5 @@ https://github.com/debezium/container-images/tree/main/server/3.2
 ### Debugging
 If you encounter problems when building the image you can get more ourput by adding the `progress` flag.
 ```
-docker build --no-cache --progress=plain -t thomann-debezium/server:3.2.0 .
+docker build --no-cache --platform linux/amd64 --progress=plain -t thomann-debezium/server:3.2.0 .
 ```
