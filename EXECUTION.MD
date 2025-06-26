@@ -33,9 +33,14 @@ To build debezium you need to clone (git) [debezium repository](https://github.c
 Navigate to the repository and build debezium with the following commands:
 ```
 cd debezium
-mvn clean verify -DskipITs
+mvn clean install -DskipITs
 ```
 This can take up to 15 minutes to build.
+If you encounter errors check if your docker daemon is running and reachable.
+If you still encounter errors you can try to build the artifacts with:
+```
+mvn clean install -DskipITs -DskipTests
+```
 
 ### Building debezium-server
 To build debezium you need to clone (git) [debezium-server](https://github.com/cookiefactory/debezium-server). 
